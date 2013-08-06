@@ -5,45 +5,66 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="frmDemo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="637.0" prefWidth="828.0" xmlns:fx="http://javafx.com/fxml" fx:controller="demo.code.SQLHackingDemoController">
+<AnchorPane id="frmDemo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="637.0" prefWidth="828.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="demo.code.SQLHackingDemoController">
   <children>
     <BorderPane prefHeight="491.0" prefWidth="633.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <center>
-        <SplitPane dividerPositions="0.35108958837772397" focusTraversable="true" prefHeight="528.0" prefWidth="701.0">
+        <SplitPane dividerPositions="0.35108958837772397" focusTraversable="false" prefHeight="528.0" prefWidth="701.0">
           <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="613.0" prefWidth="362.0">
               <children>
-                <AnchorPane id="AnchorPane" layoutY="31.0" prefHeight="114.0" prefWidth="269.0">
+                <AnchorPane id="AnchorPane" layoutX="0.0" layoutY="97.0" prefHeight="159.0">
                   <children>
-                    <VBox id="VBox" alignment="CENTER" layoutX="201.0" layoutY="1.0" prefWidth="78.0" spacing="5.0">
+                    <AnchorPane id="AnchorPane" layoutX="0.0" layoutY="19.0" prefHeight="114.0" prefWidth="300.0">
                       <children>
-                        <Label text="In" />
-                        <TextField prefWidth="90.0" />
-                        <TextField disable="true" prefWidth="90.0" />
-                        <Button id="btnStart" fx:id="btnInStart" mnemonicParsing="false" text="Start" />
-                        <Button fx:id="btnInStop" mnemonicParsing="false" text="Stop" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="140.0" layoutX="0.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="287.0" />
+                        <VBox id="VBox" alignment="CENTER" layoutX="201.0" layoutY="1.0" prefWidth="78.0" spacing="5.0">
+                          <children>
+                            <Label text="Out" />
+                            <TextField id="txtThreadsInNr" fx:id="txtThreadsOutNr" prefWidth="90.0" />
+                            <TextField disable="true" prefWidth="90.0" />
+                            <Button id="btnInStart" fx:id="btnThreadsOutStart" mnemonicParsing="false" text="Start" />
+                            <Button id="btnInStop" fx:id="txtThreadsOutStop" disable="true" mnemonicParsing="false" text="Stop" />
+                          </children>
+                        </VBox>
+                        <VBox id="VBox" alignment="CENTER" layoutX="110.0" layoutY="1.0" prefWidth="77.60009765625" spacing="5.0">
+                          <children>
+                            <Label text="In" />
+                            <TextField id="txtThreadsNrOut" fx:id="txtThreadsInNr" prefWidth="64.0" />
+                            <TextField id="txtThreadsOutWait" fx:id="txtThreadsInWait" editable="false" prefWidth="90.0" text="1000" />
+                            <Button id="btnStart" fx:id="btnThreadsInStart" mnemonicParsing="false" text="Start" />
+                            <Button id="btnInStop" fx:id="btnThreadsInStop" disable="true" mnemonicParsing="false" text="Stop" />
+                          </children>
+                        </VBox>
+                        <Label layoutX="8.0" layoutY="24.0" text="Nr of threads:" />
+                        <Label layoutX="8.0" layoutY="48.0" text="Wait (in ms):" />
                       </children>
-                    </VBox>
-                    <VBox id="VBox" alignment="CENTER" layoutX="110.0" layoutY="1.0" prefWidth="77.60009765625" spacing="5.0">
-                      <children>
-                        <Label text="Out" />
-                        <TextField prefWidth="64.0" />
-                        <TextField editable="false" prefWidth="90.0" />
-                        <Button id="btnStart" mnemonicParsing="false" text="Start" />
-                        <Button id="btnInStop" mnemonicParsing="false" text="Stop" />
-                      </children>
-                    </VBox>
-                    <Label layoutX="8.0" layoutY="24.0" text="Number of threads:" />
-                    <Label layoutX="8.0" layoutY="48.0" text="Wait (in ms):" />
+                    </AnchorPane>
+                    <Label contentDisplay="CENTER" layoutX="14.0" layoutY="-4.0" text="Threads">
+                      <font>
+                        <Font name="System Bold" size="16.0" fx:id="x1" />
+                      </font>
+                    </Label>
                   </children>
                 </AnchorPane>
-                <Label contentDisplay="CENTER" layoutX="109.0" layoutY="7.0" text="Threads">
-                  <font>
-                    <Font size="16.0" />
-                  </font>
-                </Label>
+                <AnchorPane id="AnchorPane" layoutX="-3.0" layoutY="10.0" prefHeight="83.0">
+                  <children>
+                    <AnchorPane id="AnchorPane" layoutX="0.0" layoutY="19.0" prefHeight="59.0" prefWidth="300.0">
+                      <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="65.0" layoutX="3.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="287.0" />
+                        <Label layoutX="8.0" layoutY="6.0" text="Server:port" />
+                        <Label layoutX="8.0" layoutY="30.0" text="SID" />
+                        <TextField fx:id="txtServer" layoutX="98.0" layoutY="3.0" prefWidth="117.0" text="localhost" />
+                        <TextField fx:id="txtPort" layoutX="219.0" layoutY="3.0" prefWidth="57.0" text="1521" />
+                        <TextField fx:id="txtSID" layoutX="98.0" layoutY="30.0" prefWidth="114.0" text="ORCL" />
+                      </children>
+                    </AnchorPane>
+                    <Label contentDisplay="CENTER" font="$x1" layoutX="14.0" layoutY="-4.0" text="TNS connection" />
+                  </children>
+                </AnchorPane>
               </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
